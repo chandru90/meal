@@ -12,7 +12,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://chandru-meal.vercel.app",
+    origin: "https://meal-azure.vercel.app",
     methods: "POST,GET",
     credentials: true
   })
