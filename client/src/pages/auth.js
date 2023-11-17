@@ -83,10 +83,20 @@ const Register = () => {
 
   const [_, setCookies] = useCookies(["access_token"]);
   const navigate = useNavigate();
+  const isEmailValid = (email) => {
+   
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      if (!isEmailValid(username)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+   //try{
       await axios.post("https://chandru-mealserver.onrender.com/auth/register", {
         username,
         password,
